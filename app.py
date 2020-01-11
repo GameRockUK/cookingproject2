@@ -8,6 +8,7 @@ if path.exists("env.py"):
 
 app = Flask(__name__)
 
+# below is the database connection which is being looked for within the env.py
 app.config["MONGO_DBNAME"] = 'Recipe_Book'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 
