@@ -1,6 +1,7 @@
+<!--This calls the parent styling and MongoDB code from base.html -->
 {% extends 'base.html' %}
 {% block content %}
-<button data-target="modal1" class="btn modal-trigger">Add Recipe</button>
+<!--This is the modal which contains the form users can submit recipes on -->
 <div id="modal1" class="modal">
 	<div class="modal-content">
     <h3>Add a Recipe</h3>
@@ -50,6 +51,7 @@
 		<a class="waves-effect waves-light btn">Submit</a>
 	</div>
 </div>
+<!--This is the collapsible list which contains the recipes, when users submit recipes they show up in this list -->
 <ul class="collapsible">
 	{% for recipe in recipes %}
 	<li>

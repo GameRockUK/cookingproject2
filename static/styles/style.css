@@ -1,0 +1,12 @@
+body {
+    background-color: lightblue;
+}
+
+nav .nav-wrapper {
+    background-color: darkseagreen;
+    padding: 2px;
+}
+
+#recipesid {
+    padding-top: 5px;
+}
