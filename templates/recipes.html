@@ -11,6 +11,16 @@
 						<input id="recipe_name" name="recipe_name" type="text" class="validate">
 						<label for="first_name">Recipe Name</label>
 					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<select>
+                            <option value="" disabled selected>Recipe Type</option>
+                            <option value="1">Food</option>
+                            <option value="2">Drink</option>
+                        </select>
+							<label>Select Recipe Type</label>
+						</div>
+					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">assignment</i>
 						<textarea id="recipe_description" class="materialize-textarea" name="recipe_description"></textarea>
@@ -21,17 +31,22 @@
 						<textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea"></textarea>
 						<label for="textarea1">Ingredients</label>
 					</div>
-                    	<div class="input-field col s12">
+					<div class="input-field col s12">
 						<i class="material-icons prefix">local_dining</i>
 						<textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"></textarea>
 						<label for="textarea1">Instructions</label>
+					</div>
+					<div class="input-field col s3">
+						<i class="material-icons prefix">today</i>
+						<input type="text" class="datepicker">
+						<label for="textarea1">Date</label>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		<a class="waves-effect waves-light btn">Submit</a>
 	</div>
 </div>
 <ul class="collapsible">
