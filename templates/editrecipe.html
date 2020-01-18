@@ -3,11 +3,9 @@
 {% block content %}
 <!--This is the modal which contains the form users can submit recipes on -->
 <div class="row">
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h3>Add a Recipe</h3>
+		<h3>Edit a Recipe</h3>
 		<div class="row">
-			<form action="{{ url_for('add_recipe') }}" method="POST" class="col s12">
+			<form action="{{ url_for('update_recipesedit', recipe_id=recipe._id) }}" method="POST" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
@@ -50,32 +48,4 @@
 				</div>
 			</form>
 		</div>
-	</div>
 </div>
-</div>
-<!--This is the collapsible list which contains the recipes, when users submit recipes they show up in this list -->
-<ul class="collapsible">
-	{% for recipe in recipes %}
-	<li>
-		<div class="collapsible-header"><i class="material-icons">restaurant</i>{{recipe.recipe_name}} -
-			<strong> {{recipe.recipe_type}}</strong> - {{recipe.date_added}}
-            <div class="row">
-            <a class="waves-effect waves-light btn btn_small green right">Edit</a>
-            </div> 
-            </div>
-            
-
-		<div class="collapsible-body background-recipe">
-			<span>
-        {{recipe.recipe_description}}
-        {{recipe.recipe_ingredients}}
-        {{recipe.recipe_instructions}}
-        </span>
-		</div>
-	</li>
-	<li>
-		{% endfor %}
-</ul>
-
-
-{% endblock %}

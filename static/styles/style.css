@@ -1,12 +1,15 @@
+/* BACKGROUND COLOUR */
 body {
     background-color: lightblue;
 }
 
+/* NAVBAR STYLING */
 nav .nav-wrapper {
     background-color: darkseagreen;
     padding: 2px;
 }
 
+/* RECIPES STYLING */
 #recipesid {
     padding-top: 5px;
 }
@@ -14,3 +17,4 @@ nav .nav-wrapper {
 .background-recipe {
     background-color: white;
 }
+
