@@ -10,3 +10,7 @@ nav .nav-wrapper {
 #recipesid {
     padding-top: 5px;
 }
+
+.background-recipe {
+    background-color: white;
+}

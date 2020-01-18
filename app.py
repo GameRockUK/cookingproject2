@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
-  import env
+    import env
 
 app = Flask(__name__)
 
@@ -25,6 +25,7 @@ def get_recipes():
 @app.route('/add_recipe', methods=['POST'])
 def add_recipe():
     recipes = mongo.db.Recipes
+    print(request.form.to_dict())
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
