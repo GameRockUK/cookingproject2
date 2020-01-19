@@ -14,13 +14,14 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
     recipes = mongo.db.Recipes.find()
-    types = mongo.db.Type.find() 
-    return render_template("recipes.html", recipes=recipes, types=types 
-    )
+    types = mongo.db.Type.find()
+    return render_template("recipes.html", recipes=recipes, types=types)
+
 
 @app.route('/add_recipe', methods=['POST'])
 def add_recipe():
@@ -29,15 +30,15 @@ def add_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
+
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     types = mongo.db.Type.find()
     return render_template('editrecipe.html', recipesedit=the_recipe,
-    alltypes=types)
+                            alltypes=types)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-    
