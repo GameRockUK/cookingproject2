@@ -5,7 +5,7 @@
 <div class="row">
 		<h3>Edit a Recipe</h3>
 		<div class="row">
-			<form action="{{ url_for('update_recipesedit', recipe_id=recipe._id) }}" method="POST" class="col s12">
+			<form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
@@ -49,3 +49,6 @@
 			</form>
 		</div>
 </div>
+
+
+{% endblock %}

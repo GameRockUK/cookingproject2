@@ -7,7 +7,7 @@
 	<div class="modal-content">
 		<h3>Add a Recipe</h3>
 		<div class="row">
-			<form action="{{ url_for('_recipe') }}" method="POST" class="col s12">
+			<form action="{{ url_for('add_recipe') }}" method="POST" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
@@ -60,7 +60,7 @@
 		<div class="collapsible-header"><i class="material-icons">restaurant</i>{{recipe.recipe_name}} -
 			<strong> {{recipe.recipe_type}}</strong> - {{recipe.date_added}}
             <div class="row">
-            <a href="{{ url_for('edit_recipe'), recipe_id=recipe._id }}" class="waves-effect waves-light btn btn_small green right">Edit</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="waves-effect waves-light btn btn_small green right">Edit</a>
             </div> 
             </div>
             
