@@ -1,58 +1,6 @@
 <!--This calls the parent styling and MongoDB code from base.html -->
 {% extends 'base.html' %}
 {% block content %}
-<!--This is the modal which contains the form users can submit recipes on -->
-<div class="row">
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h3>Add a Recipe</h3>
-		<div class="row">
-			<form action="{{ url_for('add_recipe') }}" method="POST" class="col s12">
-				<div class="row">
-					<div class="input-field col s6">
-						<i class="material-icons prefix">account_circle</i>
-						<input id="recipe_name" name="recipe_name" type="text" class="validate">
-						<label for="first_name">Recipe Name</label>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<select>
-                            <option value="" disabled selected>Select Recipe Type</option>
-                            {% for type in alltypes %}
-                            <option value="{{type.recipe_type}}">{{type.recipe_type}}</option>
-                            {% endfor %}
-                        </select>
-						</div>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">assignment</i>
-						<textarea id="recipe_description" class="materialize-textarea" name="recipe_description"></textarea>
-						<label for="textarea1">Recipe Description</label>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">local_grocery_store</i>
-						<textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea"></textarea>
-						<label for="textarea1">Ingredients</label>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">local_dining</i>
-						<textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"></textarea>
-						<label for="textarea1">Instructions</label>
-					</div>
-					<div class="input-field col s3">
-						<i class="material-icons prefix">today</i>
-						<input type="text" class="datepicker" name="date_added" id="date_added">
-						<label for="textarea1">Date</label>
-					</div>
-				</div>
-				<div class="row">
-					<button><a class="waves-effect waves-light btn" name="action" type="submit">Submit</a></button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-</div>
 <!--This is the collapsible list which contains the recipes, when users submit recipes they show up in this list -->
 <ul class="collapsible">
 	{% for recipe in recipes %}
@@ -60,7 +8,8 @@
 		<div class="collapsible-header"><i class="material-icons">restaurant</i>{{recipe.recipe_name}} -
 			<strong> {{recipe.recipe_type}}</strong> - {{recipe.date_added}}
             <div class="row">
-            <a href="{{ url_for('edit_recipe', recipe_id=recipes._id )}}" class="waves-effect waves-light btn btn_small green right">Edit</a>
+            <a class="waves-effect waves-light btn btn_small green right">Done</a>
+            <a href="{{url_for('edit_recipe', recipe_id=recipesedit._id)}}" class="waves-effect waves-light btn btn_small green right">Edit</a>
             </div> 
             </div>
             
