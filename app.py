@@ -38,6 +38,23 @@ def edit_recipe(recipe_id):
     return render_template('editrecipe.html', recipesedit=the_recipe,
                             alltypes=types)
 
+
+@app.route('/update_task/<recipe_id>', methods=["POST"])
+def update_task(recipe_id):
+    recipes = mongo.db.Recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'recipe_name' :request.form.get('recipe_name'),
+        'recipe_type' :request.form.get('recipe_type'),
+        'recipe_description' :request.form.get('recipe_description'),
+        'recipe_ingredients' :request.form.get('recipe_ingredients'),
+        'recipe_instructions' :request.form.get('recipe_instructions'),
+        'date_added' :request.form.get('date_added')
+
+    })
+    return redirect(url_for('get_tasks'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

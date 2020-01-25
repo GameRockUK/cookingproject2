@@ -1,4 +1,5 @@
 <!--This calls the parent styling and MongoDB code from base.html -->
+
 {% extends 'base.html' %}
 {% block content %}
 <!--This is the modal which contains the form users can submit recipes on -->
@@ -9,7 +10,7 @@
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
-						<input id="recipesedit_name" name="recipesedit_name" type="text" class="validate">
+						<input id="recipes_name" name="recipes_name" type="text" class="validate" value="{{recipesedit.recipe_name}}"">
 						<label for="first_name">Recipe Name</label>
 					</div>
 					<div class="row">
@@ -17,29 +18,33 @@
 							<select>
                             <option value="" disabled selected>Select Recipe Type</option>
                             {% for type in alltypes %}
-                            <option value="{{recipesedit.the_recipe_type}}">{{recipesedit.recipe_type}}</option>
+                                {% if recipesedit.recipe_type == type.recipe_type %}
+                                <option value="{{type.recipe_type}}" selected>{{type.recipe_type}}</option>
+                                {% else %}
+                                <option value="{{type.recipe_type}}">{{type.recipe_type}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
 						</div>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">assignment</i>
-						<textarea id="recipesedit_description" class="materialize-textarea" name="recipesedit_description"></textarea>
+						<input id="recipe_description" class="validate" type="text" name="recipe_description" value="{{recipesedit.recipe_description}}">
 						<label for="textarea1">Recipe Description</label>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">local_grocery_store</i>
-						<textarea id="recipesedit_ingredients" name="recipesedit_ingredients" class="materialize-textarea"></textarea>
+						<input id="recipe_ingredients" name="recipe_ingredients" class="validate" type="text" value="{{recipesedit.recipe_ingredients}}">
 						<label for="textarea1">Ingredients</label>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">local_dining</i>
-						<textarea id="recipesedit_instructions" name="recipesedit_instructions" class="materialize-textarea"></textarea>
+						<input id="recipesedit_instructions" name="recipesedit_instructions" class="validate" type="text" value="{{recipesedit.recipe_instructions}}">
 						<label for="textarea1">Instructions</label>
 					</div>
 					<div class="input-field col s3">
 						<i class="material-icons prefix">today</i>
-						<input type="text" class="datepicker" name="date_added" id="date_added">
+						<input type="text" class="datepicker" name="date_added" id="date_added" value="{{recipesedit.date_added}}">
 						<label for="textarea1">Date</label>
 					</div>
 				</div>
@@ -50,5 +55,12 @@
 		</div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        date_added = Date.parse('{{recipesedit.date_added}}');
+        $('#date_added').pickadate('picker').set('select', date_added, { format: 'dd/mm/yyyy'}).trigger('change');
+    });
+</script>
 
 {% endblock %}
