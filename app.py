@@ -52,7 +52,7 @@ def update_task(recipe_id):
         'date_added' :request.form.get('date_added')
 
     })
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for('get_recipes'))
 
 
 if __name__ == '__main__':
