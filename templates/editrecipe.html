@@ -6,16 +6,16 @@
 <div class="row">
 		<h3>Edit a Recipe</h3>
 		<div class="row">
-			<form action="{{ url_for('edit_recipe', recipe_id=recipesedit._id) }}" method="POST" class="col s12">
+			<form action="{{ url_for('update_recipe', recipe_id=recipesedit._id) }}" method="POST" class="col s12">
 				<div class="row">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
-						<input id="recipes_name" name="recipes_name" type="text" class="validate" value="{{recipesedit.recipe_name}}"">
+						<input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipesedit.recipe_name}}"">
 						<label for="first_name">Recipe Name</label>
 					</div>
 					<div class="row">
 						<div class="input-field col s6">
-							<select>
+							<select id="type" name="recipe_type">
                             <option value="" disabled selected>Select Recipe Type</option>
                             {% for type in alltypes %}
                                 {% if recipesedit.recipe_type == type.recipe_type %}
@@ -39,7 +39,7 @@
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">local_dining</i>
-						<input id="recipesedit_instructions" name="recipesedit_instructions" class="validate" type="text" value="{{recipesedit.recipe_instructions}}">
+						<input id="recipe_instructions" name="recipe_instructions" class="validate" type="text" value="{{recipesedit.recipe_instructions}}">
 						<label for="textarea1">Instructions</label>
 					</div>
 					<div class="input-field col s3">

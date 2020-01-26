@@ -39,18 +39,16 @@ def edit_recipe(recipe_id):
                             alltypes=types)
 
 
-@app.route('/update_task/<recipe_id>', methods=["POST"])
-def update_task(recipe_id):
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
     recipes = mongo.db.Recipes
-    recipes.update( {'_id': ObjectId(recipe_id)},
-    {
-        'recipe_name' :request.form.get('recipe_name'),
-        'recipe_type' :request.form.get('recipe_type'),
-        'recipe_description' :request.form.get('recipe_description'),
-        'recipe_ingredients' :request.form.get('recipe_ingredients'),
-        'recipe_instructions' :request.form.get('recipe_instructions'),
-        'date_added' :request.form.get('date_added')
-
+    recipes.update({'_id': ObjectId(recipe_id)}, {
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'recipe_ingredients': request.form.get('recipe_ingredients'),
+        'recipe_instructions': request.form.get('recipe_instructions'),
+        'date_added': request.form.get('date_added'),
+        'recipe_type': request.form.get('recipe_type')
     })
     return redirect(url_for('get_recipes'))
 
