@@ -3,28 +3,54 @@
 {% block content %}
 <!--This is the collapsible list which contains the recipes, when users submit recipes they show up in this list -->
 <div class="row">
+<div class="container">
 <ul class="collapsible" data-collapsible="accordion">
 	{% for recipe in recipes %}
 	<li>
-		<div class="collapsible-header"><i class="material-icons">restaurant</i>{{recipe.recipe_name}} -
-			<strong> {{recipe.recipe_type}}</strong> - {{recipe.date_added}}
+		<div class="collapsible-header"><i class="material-icons">restaurant</i><h3>{{recipe.recipe_name}} -
+			<strong> {{recipe.recipe_type}}</strong> - {{recipe.date_added}} </h3>
             <div class="col s3">
             <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small red right">Delete</a>
             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small green right">Edit</a>
             </div> 
-            </div>
+        
             
-
+        </div>
 		<div class="collapsible-body background-recipe">
-			<span>
-        {{recipe.recipe_description}}
-        {{recipe.recipe_ingredients}}
-        {{recipe.recipe_instructions}}
-        </span>
+        <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel green">
+          <span class="white-text"><h4>Description:</h4><h5>{{recipe.recipe_description}}</h5>
+          </span>
+        </div>
+      </div>
+    </div>
+          <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel blue">
+          <span class="white-text"><h4>Ingredients:</h4><h5>{{recipe.recipe_ingredients}}</h5>
+          </span>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel orange">
+          <span class="white-text"><h4>Instructions:</h4><h5>{{recipe.recipe_instructions}}</h5>
+          </span>
+        </div>
+      </div>
+    </div>
+        
+        
+        
+        </h5>
 		</div>
+        
 	</li>
 		{% endfor %}
 </ul>
+</div>
 </div>
 
 {% endblock %}
