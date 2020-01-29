@@ -4,18 +4,18 @@
 {% block content %}
 <!--This is the modal which contains the form users can submit recipes on -->
 <div class="row">
-		<h3>Edit a Recipe</h3>
-		<div class="row">
-			<form action="{{ url_for('update_recipe', recipe_id=recipesedit._id) }}" method="POST" class="col s12">
+	<h3>Edit a Recipe</h3>
+	<div class="row">
+		<form action="{{ url_for('update_recipe', recipe_id=recipesedit._id) }}" method="POST" class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<i class="material-icons prefix">account_circle</i>
+					<input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipesedit.recipe_name}}"">
+						<label for="first_name">Recipe Name</label>
+				</div>
 				<div class="row">
 					<div class="input-field col s6">
-						<i class="material-icons prefix">account_circle</i>
-						<input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipesedit.recipe_name}}"">
-						<label for="first_name">Recipe Name</label>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<select id="type" name="recipe_type">
+						<select id="type" name="recipe_type">
                             <option value="" disabled selected>Select Recipe Type</option>
                             {% for type in alltypes %}
                                 {% if recipesedit.recipe_type == type.recipe_type %}
@@ -25,39 +25,39 @@
                                 {% endif %}
                             {% endfor %}
                         </select>
-						</div>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">assignment</i>
-						<input id="recipe_description" class="validate" type="text" name="recipe_description" value="{{recipesedit.recipe_description}}">
-						<label for="textarea1">Recipe Description</label>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">local_grocery_store</i>
-						<input id="recipe_ingredients" name="recipe_ingredients" class="validate" type="text" value="{{recipesedit.recipe_ingredients}}">
-						<label for="textarea1">Ingredients</label>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">local_dining</i>
-						<input id="recipe_instructions" name="recipe_instructions" class="validate" type="text" value="{{recipesedit.recipe_instructions}}">
-						<label for="textarea1">Instructions</label>
-					</div>
-					<div class="input-field col s3">
-						<i class="material-icons prefix">today</i>
-						<input type="text" class="datepicker" name="date_added" id="date_added" value="{{recipesedit.date_added}}">
-						<label for="textarea1">Date</label>
 					</div>
 				</div>
-				<div class="row">
-					<button class="waves-effect waves-light btn" type="submit" name="action">Submit</button>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="recipe_description" class="validate" type="text" name="recipe_description" value="{{recipesedit.recipe_description}}">
+					<label for="textarea1">Recipe Description</label>
 				</div>
-			</form>
-		</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">local_grocery_store</i>
+					<input id="recipe_ingredients" name="recipe_ingredients" class="validate" type="text" value="{{recipesedit.recipe_ingredients}}">
+					<label for="textarea1">Ingredients</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">local_dining</i>
+					<input id="recipe_instructions" name="recipe_instructions" class="validate" type="text" value="{{recipesedit.recipe_instructions}}">
+					<label for="textarea1">Instructions</label>
+				</div>
+				<div class="input-field col s3">
+					<i class="material-icons prefix">today</i>
+					<input type="text" class="datepicker" name="date_added" id="date_added" value="{{recipesedit.date_added}}">
+					<label for="textarea1">Date</label>
+				</div>
+			</div>
+			<div class="row">
+				<button class="waves-effect waves-light btn" type="submit" name="action">Submit</button>
+			</div>
+		</form>
+	</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+	$(document).ready(function() {
         date_added = Date.parse('{{recipesedit.date_added}}');
         $('#date_added').pickadate('picker').set('select', date_added, { format: 'dd/mm/yyyy'}).trigger('change');
     });
