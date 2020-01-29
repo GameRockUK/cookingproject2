@@ -26,7 +26,7 @@ def get_recipes():
 @app.route('/add_recipe', methods=['POST'])
 def add_recipe():
     recipes = mongo.db.Recipes
-    print(request.form.to_dict())
+    types = mongo.db.Type.find()
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 

@@ -37,9 +37,9 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s6">
-							<select>
+							<select id="type" name="recipe_type">
                             <option value="" disabled selected>Select Recipe Type</option>
-                            {% for type in alltypes %}
+                            {% for type in types %}
                             <option value="{{type.recipe_type}}">{{type.recipe_type}}</option>
                             {% endfor %}
                         </select>
