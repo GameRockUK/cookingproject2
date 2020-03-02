@@ -26,7 +26,6 @@ def get_recipes():
 @app.route('/add_recipe', methods=['POST'])
 def add_recipe():
     recipes = mongo.db.Recipes
-    types = mongo.db.Type.find()
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
@@ -35,8 +34,8 @@ def add_recipe():
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
     types = mongo.db.Type.find()
-    return render_template('editrecipe.html', recipesedit=the_recipe,
-                            alltypes=types)
+    return render_template('editrecipe.html',
+                           recipesedit=the_recipe, alltypes=types)
 
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
