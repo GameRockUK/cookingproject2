@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Recipe World</title>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     </nav>
     
     <div class="parallax-container">
-      <div class="parallax"><img src="{{ url_for('static',filename='images/black-frying.jpg') }}"></div>
+      <div class="parallax"><img src="{{ url_for('static',filename='images/black-frying.jpg') }}" alt="Black Frying Pan"></div>
     </div>
     <div class="section white">
       <div class="row container">
@@ -34,7 +35,7 @@
       </div>
     </div>
     <div class="parallax-container">
-      <div class="parallax"><img src="{{ url_for('static',filename='images/black-frying.jpg') }}"></div>
+      <div class="parallax"><img src="{{ url_for('static',filename='images/black-frying.jpg') }}" alt="Black Frying Pan"></div>
     </div>
 	<div class="row" id="recipesid">
 		
@@ -83,7 +84,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<button><a class="waves-effect waves-light btn" name="action" type="submit">Submit</a></button>
+							<button class="waves-effect waves-light btn" name="action" type="submit">Submit</button>
 						</div>
 					</form>
 				</div>
