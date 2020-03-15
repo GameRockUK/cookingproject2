@@ -4,6 +4,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name= "viewport" content="width = device-width, initial-scale = 1"> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Recipe World</title>
 </head>
@@ -14,11 +15,12 @@
             <a href="#!" class="brand-logo">Recipe World</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_recipes') }}" class="modal-trigger">Home</a></li>
+                <li><a href="{{ url_for('get_recipes') }}" >Home</a></li>
                 <li><a href="#modal1" class="modal-trigger">Add Recipe</a></li>
 			</ul>
 	
 	<ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('get_recipes') }}" >Home</a></li>
 		<li><a href="#modal1" class="modal-trigger">Add Recipe</a></li>
 	</ul>
 	</div>
@@ -28,8 +30,8 @@
       <div class="parallax"><img src="{{ url_for('static',filename='images/black-frying.jpg') }}" alt="Black Frying Pan"></div>
     </div>
     <div class="section white">
-      <div class="row container">
-        <div class="col m12">
+      <div class="row">
+        <div class="col m12 center" id="recipefields">
 			{% block content %}
 			{% endblock %}
 		</div>
@@ -109,5 +111,4 @@
     });
 	</script>
 </body>
-
 </html>
