@@ -46,6 +46,24 @@ The Technologies used in this project are:
 Main issue with the application is that it allows anyone to do anything, if time provided we would restrict it down to just the recipe owner could
 edit/delete the recipe they have created.
 
+## Testing
+
+We have done various tests to ensure this application reaches the expectation of the customers. 
+
+The first test we did was the basic functionality of the add, edit and delete recipes functions. We identified early on that the data from the MongoDB wasn't being manipulated
+as we would of liked and the communication between the application and the MongoDB was working, after tweaking the app.py we realised that the env.py was incorrect so we adjusted this
+to make it work, it turned out it was the Mongo URI which was incorrect.
+
+Another test we did was the responsive test, to ensure the application worked across other resolutions. We hit a few issues with this, particularly around the Paralax that we added. We had to
+adjust the width in the stylesheet and we also had to edit the background image width as well. After a few styling tweaks we managed to get it working as expected.
+
+## Deployment
+
+We deployed the application to Github and Heroku, Github for the version control and backup purposes and Heroku for the publishing of the application. 
+
+In Heroku we had to add the Mongo URI into the config vars to ensure it connected with the MongoDB correctly.
+
+In order to run the code locally we used the git command 'python3 app.py' on Gitpod.
 
 ## Credits
 
